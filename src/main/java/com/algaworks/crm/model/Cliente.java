@@ -3,6 +3,9 @@ package com.algaworks.crm.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+
+import java.util.List;
+
 @Data
 @Entity //definindo classe como entidade da base de dados
 public class Cliente {
@@ -16,4 +19,7 @@ public class Cliente {
 
     @Column(nullable = false)
     private Long telefone;
+
+    @OneToMany(mappedBy = "cliente", targetEntity = Produto.class, cascade = CascadeType.ALL)
+    private List<Produto> produtos;
 }

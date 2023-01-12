@@ -13,4 +13,8 @@ public class Produto {
     private String nome;
     @Column(nullable = false)
     private Long preco;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 }
